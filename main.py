@@ -5,9 +5,9 @@ from pyrogram import Client, filters
 from pyrogram.errors import PeerIdInvalid
 
 # Configuration
-api_id = 1234567  # Replace with your API ID
-api_hash = "your_api_hash_here"  # Replace with your API hash
-string_session = "your_string_session_here"  # Replace with your string session
+api_id = 29264175  # Replace with your API ID
+api_hash = "0a3e78a4cd29529769faf5fe588f6de7"  # Replace with your API hash
+string_session = "BQG-iS8APB9X8whKpYhzPAJZJPkKiaOyMJb1pCmw-Pt4fxDtmxNnFBxCDQraLVnXu-SrjsU68R2HGWX8b5OAO3kSw7hWDhWF67JYsTUjSbYEe7H056VamSg8B3MhsKFxOO8sYu7EPEgV_IDwtMB6umYbG06vqlwbhEJtJ7D0dclNKrMqZKCN0zJYvmkCxpVdBfmpTkFpkpzyO-C5v03-QBwdsByS9acCzIkEa1j8ASa0MaS0JvpDxohpFm--65ApI7GDb7IwApczMauogssNq5g4yDo-m1Phwc6HtdEe1W92vaK1RbKpIhCR0FXtZyu1MXS3jlgQZC98yizHin_rzF4-9JNq-wAAAAGvxvGaAA"  # Replace with your string session
 
 # Initializing bot and start time
 bot = Client("AlphaUserbot", api_id=api_id, api_hash=api_hash, session_string=string_session)
