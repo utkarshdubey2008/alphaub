@@ -2,7 +2,7 @@ import time
 from datetime import datetime
 import pytz
 from pyrogram import Client, filters
-from pyrogram.errors import PeerIdInvalid
+from pyrogram.errors import PeerIdInvalid, UserNotParticipant
 
 # Configuration
 api_id = 29264175  # Replace with your API ID
@@ -142,14 +142,17 @@ async def spam_message(client, message):
         return
     
     if len(message.command) > 2:
-        count = int(message.command[1])
-        spam_message = " ".join(message.command[2:])
-        is_spamming = True
-        for _ in range(count):
-            if not is_spamming:
-                break
-            await message.reply(spam_message)
-            time.sleep(0.5)
+        try:
+            count = int(message.command[1])
+            spam_message = " ".join(message.command[2:])
+            is_spamming = True
+            for _ in range(count):
+                if not is_spamming:
+                    break
+                await message.reply(spam_message)
+                time.sleep(0.5)
+        except ValueError:
+            await message.reply("Count must be a number.")
     else:
         await message.reply("Usage: `.spam <count> <message>`")
 
@@ -169,9 +172,8 @@ async def raid_command(client, message):
         return
 
     username = message.command[1]
-    raid_count = int(message.command[2])
-
     try:
+        raid_count = int(message.command[2])
         user = await client.get_users(username)
         is_raiding = True
         for _ in range(raid_count):
@@ -180,6 +182,8 @@ async def raid_command(client, message):
             abuse = abuses[_ % len(abuses)]
             await message.reply(f"{user.mention}, {abuse}")
             time.sleep(0.5)
+    except ValueError:
+        await message.reply("Number of times must be a number.")
     except PeerIdInvalid:
         await message.reply("User not found.")
 
