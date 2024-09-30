@@ -1,3 +1,4 @@
 pyrogram==2.0.106
-tgcrypto==1.2.3  # Optional but recommended for faster encryption
-pytz
+tgcrypto==1.2.3
+pysocks==1.7.1
+pytz==2024.2
